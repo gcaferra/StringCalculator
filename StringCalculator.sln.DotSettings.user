@@ -1,0 +1,16 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f4b76c4b_002D562d_002D4a15_002Dade8_002De3edb95289f0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Add_EmptyString_return_Zero" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_EmptyString_return_Zero&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_with_a_single_number_return_the_number_itself&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_with_two_numbers_return_the_number_Sum&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_accept_sequences_of_number_of_any_amount&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_accept_also_NewLines_for_separator&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;Test&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_accept_also_NewLines_for_separator&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests&lt;/TestId&gt;&#xD;
+    &lt;/Test&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
