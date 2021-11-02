@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace StringCalculator
 {
@@ -24,9 +25,9 @@ namespace StringCalculator
         
         static List<string> SplitNumbers(string numbers)
         {
-            var stringParts = GetSeparatorAndString(numbers);
+            var (delimiter, stringOfNumber) = GetSeparatorAndString(numbers);
             var result = new List<string>();
-            var splits = stringParts.Item2.Split(stringParts.Item1);
+            var splits = stringOfNumber.Split(delimiter);
 
             foreach (var split in splits)
             {
@@ -43,9 +44,14 @@ namespace StringCalculator
             if (codeIndex < 0) return new Tuple<string, string>(defaultSeparator, inputText);
             var parts = inputText.Split("\n");
                 
-            return new Tuple<string, string>(parts[0].Replace("//", string.Empty), 
-                parts[1].Replace("\n", string.Empty));
+            return new Tuple<string, string>(GetDelimiter(parts[0]), parts[1]);
 
+        }
+
+        static string GetDelimiter(string part)
+        {
+            var match = Regex.Match(part, "\\/\\/\\[(.*)\\]");
+            return match.Length == 0 ?  part.Replace("//", string.Empty) : match.Groups[1].Value;
         }
 
         public int GetCalledCount() => _callCount;
@@ -53,12 +59,12 @@ namespace StringCalculator
 
     public static class CalculatorExtensions
     {
-        public static List<int> Filter(this IEnumerable<int> textNumber)
+        public static List<int> Filter(this IEnumerable<int> numbers)
         {
             var exclude = new List<int>();
             var result = new List<int>();
             
-            foreach (var number in textNumber)
+            foreach (var number in numbers)
             {
                 if (number is < 0 or > 1000)
                     exclude.Add(number);

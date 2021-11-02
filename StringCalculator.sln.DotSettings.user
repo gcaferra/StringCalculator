@@ -13,6 +13,7 @@
       &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.GetCalledCount_return_the_number_of_Add_method_is_called&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.AddOccured_Event_is_triggers_after_each_Add&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.numbers_bigger_than_1000_are_ignored&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.the_delimiter_can_be_of_any_size&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;Test&gt;&#xD;
       &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_accept_also_NewLines_for_separator&lt;/TestId&gt;&#xD;

@@ -105,5 +105,14 @@ namespace StringCalculator.Test
         {
             _sut.Add("1,1001,2,2002").Should().Be(3);
         }
+        
+        [Test]
+        public void the_delimiter_can_be_of_any_size()
+        {
+            var result = _sut.Add("//[***]\n1***2***3");
+            
+            Assert.That(result, Is.EqualTo(6));
+        }
+
     }
 }
