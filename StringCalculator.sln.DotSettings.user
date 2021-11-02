@@ -7,6 +7,7 @@
       &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_with_two_numbers_return_the_number_Sum&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_accept_sequences_of_number_of_any_amount&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_accept_also_NewLines_for_separator&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.the_delimiter_can_be_specified_in_the_beginning_of_the_string&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
     &lt;Test&gt;&#xD;
       &lt;TestId&gt;NUnit3x::972601A9-5847-4D97-97D1-A42C21BDCEBC::net5.0::StringCalculator.Test.StringCalculatorTests.Add_accept_also_NewLines_for_separator&lt;/TestId&gt;&#xD;
