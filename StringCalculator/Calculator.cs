@@ -6,8 +6,12 @@ namespace StringCalculator
 {
     public class Calculator
     {
+        int _callCount;
+
         public int Add(string numbers)
         {
+            _callCount++;
+            
             if(string.IsNullOrEmpty(numbers))
                 return 0;
             return SplitNumbers(numbers)
@@ -41,6 +45,8 @@ namespace StringCalculator
                 parts[1].Replace("\n", string.Empty));
 
         }
+
+        public int GetCalledCount() => _callCount;
     }
 
     public static class CalculatorExtensions

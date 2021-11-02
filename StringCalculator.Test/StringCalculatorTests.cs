@@ -78,5 +78,16 @@ namespace StringCalculator.Test
                 .Should().Throw<ArgumentException>()
                 .WithMessage("Negative numbers are not allowed: -2,-4,-7");
         }
+
+        [Test]
+        public void GetCalledCount_return_the_number_of_Add_method_is_called()
+        {
+            _sut.Add("1");
+            _sut.Add("2");
+            _sut.Add("3");
+            
+            _sut.GetCalledCount().Should().Be(3);
+
+        }
     }
 }
