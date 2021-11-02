@@ -7,17 +7,19 @@ namespace StringCalculator
     public class Calculator
     {
         int _callCount;
-
+        public event Action<string, int> AddOccurred;
         public int Add(string numbers)
         {
             _callCount++;
             
             if(string.IsNullOrEmpty(numbers))
                 return 0;
-            return SplitNumbers(numbers)
+            var result = SplitNumbers(numbers)
                 .Select(int.Parse)
                 .FilterNegatives()
                 .Sum();
+            AddOccurred?.Invoke(numbers, result);
+            return result;
         }
         
         static List<string> SplitNumbers(string numbers)

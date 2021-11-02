@@ -89,5 +89,15 @@ namespace StringCalculator.Test
             _sut.GetCalledCount().Should().Be(3);
 
         }
+
+        [Test]
+        public void AddOccured_Event_is_triggers_after_each_Add()
+        {
+            using var monitor = _sut.Monitor();
+            
+            _sut.Add("1");
+
+            monitor.Should().Raise("AddOccurred");
+        }
     }
 }
