@@ -10,17 +10,12 @@ namespace StringCalculator
         {
             if(string.IsNullOrEmpty(numbers))
                 return 0;
-            return SplitNumbers(numbers).Select(ParseNumber).Sum();
+            return SplitNumbers(numbers)
+                .Select(int.Parse)
+                .FilterNegatives()
+                .Sum();
         }
-
-        static int ParseNumber(string textNumber)
-        {
-            var number = int.Parse(textNumber);
-            if (number < 0)
-                throw new ArgumentException($"Negative numbers are not allowed: {number}");
-            return number;
-        }
-
+        
         static List<string> SplitNumbers(string numbers)
         {
             var stringParts = GetSeparatorAndString(numbers);
@@ -46,5 +41,27 @@ namespace StringCalculator
                 parts[1].Replace("\n", string.Empty));
 
         }
+    }
+
+    public static class CalculatorExtensions
+    {
+        public static List<int> FilterNegatives(this IEnumerable<int> textNumber)
+        {
+            var negatives = new List<int>();
+            var result = new List<int>();
+            
+            foreach (var number in textNumber)
+            {
+                if (number <0)
+                    negatives.Add(number);
+                else
+                    result.Add(number);
+            }
+            
+            if (negatives.Any())
+                throw new ArgumentException($"Negative numbers are not allowed: {string.Join(",",negatives)}");
+            return result;
+        }
+
     }
 }

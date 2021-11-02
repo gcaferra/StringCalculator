@@ -70,5 +70,13 @@ namespace StringCalculator.Test
                 .Should().Throw<ArgumentException>()
                 .WithMessage("Negative numbers are not allowed: -2");
         }
+    
+        [Test]
+        public void The__exception_Adding_negative_numbers_contains_the_list_of_all_negative_Numbers_passed()
+        {
+            _sut.Invoking(x => x.Add("1,-2,-4,3,-7"))
+                .Should().Throw<ArgumentException>()
+                .WithMessage("Negative numbers are not allowed: -2,-4,-7");
+        }
     }
 }
