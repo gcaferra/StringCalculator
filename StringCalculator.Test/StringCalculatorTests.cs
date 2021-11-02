@@ -1,3 +1,5 @@
+using System;
+using FluentAssertions;
 using NUnit.Framework;
 
 namespace StringCalculator.Test
@@ -59,6 +61,14 @@ namespace StringCalculator.Test
             var result = _sut.Add("//;\n1;2");
             
             Assert.That(result, Is.EqualTo(3));
+        }
+        
+        [Test]
+        public void Adding_negative_numbers_cause_a_specific_exception()
+        {
+            _sut.Invoking(x => x.Add("1,-2"))
+                .Should().Throw<ArgumentException>()
+                .WithMessage("Negative numbers are not allowed: -2");
         }
     }
 }

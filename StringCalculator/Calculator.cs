@@ -10,7 +10,15 @@ namespace StringCalculator
         {
             if(string.IsNullOrEmpty(numbers))
                 return 0;
-            return SplitNumbers(numbers).Select(int.Parse).Sum();
+            return SplitNumbers(numbers).Select(ParseNumber).Sum();
+        }
+
+        static int ParseNumber(string textNumber)
+        {
+            var number = int.Parse(textNumber);
+            if (number < 0)
+                throw new ArgumentException($"Negative numbers are not allowed: {number}");
+            return number;
         }
 
         static List<string> SplitNumbers(string numbers)
