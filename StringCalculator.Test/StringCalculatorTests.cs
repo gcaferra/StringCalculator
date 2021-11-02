@@ -99,5 +99,11 @@ namespace StringCalculator.Test
 
             monitor.Should().Raise("AddOccurred");
         }
+
+        [Test]
+        public void numbers_bigger_than_1000_are_ignored()
+        {
+            _sut.Add("1,1001,2,2002").Should().Be(3);
+        }
     }
 }

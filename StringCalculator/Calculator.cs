@@ -16,7 +16,7 @@ namespace StringCalculator
                 return 0;
             var result = SplitNumbers(numbers)
                 .Select(int.Parse)
-                .FilterNegatives()
+                .Filter()
                 .Sum();
             AddOccurred?.Invoke(numbers, result);
             return result;
@@ -53,21 +53,21 @@ namespace StringCalculator
 
     public static class CalculatorExtensions
     {
-        public static List<int> FilterNegatives(this IEnumerable<int> textNumber)
+        public static List<int> Filter(this IEnumerable<int> textNumber)
         {
-            var negatives = new List<int>();
+            var exclude = new List<int>();
             var result = new List<int>();
             
             foreach (var number in textNumber)
             {
-                if (number <0)
-                    negatives.Add(number);
+                if (number is < 0 or > 1000)
+                    exclude.Add(number);
                 else
                     result.Add(number);
             }
             
-            if (negatives.Any())
-                throw new ArgumentException($"Negative numbers are not allowed: {string.Join(",",negatives)}");
+            if (exclude.Any(x=> x < 0))
+                throw new ArgumentException($"Negative numbers are not allowed: {string.Join(",",exclude.Where(x => x < 0))}");
             return result;
         }
 
