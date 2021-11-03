@@ -122,5 +122,13 @@ namespace StringCalculator.Test
             Assert.That(result, Is.EqualTo(6));
         }
 
+        [Test]
+        public void delimiters_with_variable_size_can_be_specified()
+        {
+            var result = _sut.Add("//[**][%%]\n1**2%%3");
+            
+            Assert.That(result, Is.EqualTo(6));
+        }
+
     }
 }
