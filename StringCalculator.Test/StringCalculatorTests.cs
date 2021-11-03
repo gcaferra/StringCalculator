@@ -114,5 +114,13 @@ namespace StringCalculator.Test
             Assert.That(result, Is.EqualTo(6));
         }
 
+        [Test]
+        public void multiple_delimiters_can_be_specified()
+        {
+            var result = _sut.Add("//[*][!]\n1*2!3");
+            
+            Assert.That(result, Is.EqualTo(6));
+        }
+
     }
 }

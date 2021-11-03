@@ -23,35 +23,32 @@ namespace StringCalculator
             return result;
         }
         
-        static List<string> SplitNumbers(string numbers)
+        static string[] SplitNumbers(string numbers)
         {
-            var (delimiter, stringOfNumber) = GetSeparatorAndString(numbers);
-            var result = new List<string>();
-            var splits = stringOfNumber.Split(delimiter);
-
-            foreach (var split in splits)
-            {
-                result.AddRange(split.Split("\n"));    
-            }
-
-            return result;
+            var (delimiters, stringOfNumber) = GetSeparatorAndString(numbers);
+            delimiters.Add("\n");
+            
+            return stringOfNumber.Split(delimiters.ToArray(), StringSplitOptions.RemoveEmptyEntries);
 
         }
 
-        static Tuple<string,string> GetSeparatorAndString(string inputText, string defaultSeparator = ",")
+        static Tuple<List<string>, string> GetSeparatorAndString(string inputText, string defaultSeparator = ",")
         {
             var codeIndex = inputText.IndexOf("//", StringComparison.Ordinal);
-            if (codeIndex < 0) return new Tuple<string, string>(defaultSeparator, inputText);
+            if (codeIndex < 0) return new Tuple<List<string>, string>(new List<string> {defaultSeparator}, inputText);
             var parts = inputText.Split("\n");
                 
-            return new Tuple<string, string>(GetDelimiter(parts[0]), parts[1]);
+            return new Tuple<List<string>, string>(GetDelimiter(parts[0]), parts[1]);
 
         }
 
-        static string GetDelimiter(string part)
+        static List<string> GetDelimiter(string part)
         {
-            var match = Regex.Match(part, "\\/\\/\\[(.*)\\]");
-            return match.Length == 0 ?  part.Replace("//", string.Empty) : match.Groups[1].Value;
+            var matches = Regex.Matches(part, @"\[([^\[\]]+)\]*");
+            
+            return matches.Count == 0
+                ? new List<string> {part.Replace("//", string.Empty)} 
+                : matches.Select(x => x.Groups[1].Value).ToList();
         }
 
         public int GetCalledCount() => _callCount;
